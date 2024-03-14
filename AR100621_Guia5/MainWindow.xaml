@@ -1,0 +1,39 @@
+﻿<Window x:Class="GestionUsuarios.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionUsuarios"
+        mc:Ignorable="d"
+        Title="Listado de Usuarios" Height="372" Width="651" WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,10,23,9">
+        <DataGrid x:Name="dgUsuarios" d:ItemsSource="{d:SampleData ItemCount=5}"
+                  Margin="45,101,30,65" SelectionMode="Single" RowBackground="LightYellow"
+                  AlternatingRowBackground="#FFE6E4AD">
+            <DataGrid.RowStyle>
+                <Style/>
+            </DataGrid.RowStyle>
+        </DataGrid>
+        <Button x:Name="btnNuevo" HorizontalAlignment="Left" Margin="46,17,0,0"
+        VerticalAlignment="Top" Click="btnNuevo_Click" Height="65" Width="50">
+            <StackPanel Height="74">
+                <Image Source="/imgs/nuevo.png" Height="46" Width="34"/>
+                <TextBlock><Run Text="Nuevo"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnEditar" HorizontalAlignment="Left" Margin="141,16,0,0"
+                VerticalAlignment="Top" Click="btnEditar_Click" Height="65" Width="50">
+            <StackPanel Height="74">
+                <Image Source="imgs/editar.png" Height="46" Width="34"/>
+                <TextBlock><Run Text="Editar"/></TextBlock>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btnEliminar" HorizontalAlignment="Left" Margin="232,16,0,0"
+        VerticalAlignment="Top" Click="btnEliminar_Click" Height="65" Width="50">
+            <StackPanel Height="74">
+                <Image Source="/imgs/eliminar.png" Height="46" Width="34"/>
+                <TextBlock><Run Text="Eliminar"/></TextBlock>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>

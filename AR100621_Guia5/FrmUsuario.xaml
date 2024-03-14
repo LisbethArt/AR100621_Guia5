@@ -1,0 +1,38 @@
+﻿<Window x:Class="GestionUsuarios.FrmUsuario"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestionUsuarios"
+        mc:Ignorable="d"
+        Title="Usuario" Height="395" Width="414" WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Left" VerticalAlignment="Top" Width="372" Height="372" Margin="21,10,0,0">
+        <Label Name="lbTitulo" Content="Datos de Usuario" HorizontalAlignment="Center"
+               Margin="0,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.538,0.32"
+               FontSize="20" FontWeight="UltraBlack"/>
+        <Label Name="lbNombre" Content="Nombre: " HorizontalAlignment="Left"
+               Margin="44,100,0,0" VerticalAlignment="Top"/>
+        <Label Name="lbApellido" Content="Apellido: " HorizontalAlignment="Left"
+               Margin="44,165,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.099,0.526"/>
+        <Label Name="lbEmail" Content="E-mail" HorizontalAlignment="Left"
+               Margin="44,217,0,0" VerticalAlignment="Top"/>
+        <Label Name="lbPais" Content="Pais" HorizontalAlignment="Left"
+               Margin="44,279,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.883,-0.631"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Margin="120,104,0,0"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFEBEFBE"/>
+        <TextBox x:Name="txtApellido" HorizontalAlignment="Left" Margin="120,173,0,0"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFEBEFBE"/>
+        <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="120,221,0,0"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFEBEFBE"/>
+        <TextBox x:Name="txtPais" HorizontalAlignment="Left" Margin="120,287,0,0"
+                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFEBEFBE"/>
+        <Button x:Name="btnRegistrar" HorizontalAlignment="Left" Margin="290,106,0,0"
+                VerticalAlignment="Top" RenderTransformOrigin="1.44,-0.64"
+                Click="btnRegistrar_Click" Height="65" Width="50">
+            <StackPanel Height="74">
+                <Image Source="/imgs/guardar.png" Height="44" Width="34"/>
+                <TextBlock><Run Text="Guardar"/></TextBlock>
+            </StackPanel>
+        </Button>
+    </Grid>
+</Window>
