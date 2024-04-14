@@ -13,7 +13,8 @@ namespace GestionUsuarios
         {
             DBConnection conn = new DBConnection();
             List<UsuarioDto> usuarios = new List<UsuarioDto>();
-            string query = "SELECT * FROM usuarios";
+            string query = "SELECT u.usr_id, u.usr_nombre, u.usr_apellido, u.usr_email, u.usr_pais " +
+                           "FROM usuarios u";
             using (SqlConnection connection = conn.ObtenerConexion())
             {
                 SqlCommand command = new SqlCommand(query, connection);
@@ -28,7 +29,7 @@ namespace GestionUsuarios
                         usuario.Nombre = reader.GetString(1);
                         usuario.Apellido = reader.GetString(2);
                         usuario.Email = reader.GetString(3);
-                        usuario.Pais = reader.GetString(4);
+                        usuario.Pais = reader.GetInt32(4);
                         usuarios.Add(usuario);
                     }
                     reader.Close();
@@ -45,7 +46,8 @@ namespace GestionUsuarios
         public UsuarioDto Obtener(int? Id)
         {
             DBConnection conn = new DBConnection();
-            string query = "SELECT * FROM usuarios " +
+            string query = "SELECT u.usr_id, u.usr_nombre, u.usr_apellido, u.usr_email, u.usr_pais " +
+                           "FROM usuarios u " +
                            "WHERE usr_id=@id";
             using (SqlConnection connection = conn.ObtenerConexion())
             {
@@ -62,12 +64,11 @@ namespace GestionUsuarios
                     usuario.Nombre = reader.GetString(1);
                     usuario.Apellido = reader.GetString(2);
                     usuario.Email = reader.GetString(3);
-                    usuario.Pais = reader.GetString(4);
-
+                    usuario.Pais = reader.GetInt32(4);
                     reader.Close();
                     connection.Close();
 
-                     return usuario;
+                    return usuario;
                 }
                 catch (Exception ex)
                 {
@@ -76,7 +77,32 @@ namespace GestionUsuarios
             }
         }
 
-        public void Agregar(string Nombre, string Apellido, string Email, string Pais)
+        // Método para obtener el nombre del país por ID
+        public string ObtenerNombrePaisPorId(int paisId)
+        {
+            DBConnection conn = new DBConnection();
+            string query = "SELECT nombre FROM paises " +
+                           "WHERE pais_id=@id";
+            using (SqlConnection connection = conn.ObtenerConexion())
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("id", paisId);
+                try
+                {
+                    connection.Open();
+                    string nombrePais = (string)command.ExecuteScalar(); // Obtener el nombre del país
+                    connection.Close();
+
+                    return nombrePais;
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception("Error: " + ex.Message);
+                }
+            }
+        }
+
+        public void Agregar(string Nombre, string Apellido, string Email, int Pais)
         {
             DBConnection conn = new DBConnection();
             string query = "INSERT INTO usuarios(" +
@@ -103,7 +129,7 @@ namespace GestionUsuarios
             }
         }
 
-        public void Actualizar(string Nombre, string Apellido, string Email, string Pais, int Id)
+        public void Actualizar(string Nombre, string Apellido, string Email, int Pais, int Id)
         {
 
             DBConnection conn = new DBConnection();

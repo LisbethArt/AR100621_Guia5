@@ -17,7 +17,7 @@
         <Button x:Name="btnNuevo" HorizontalAlignment="Left" Margin="46,17,0,0"
         VerticalAlignment="Top" Click="btnNuevo_Click" Height="65" Width="50">
             <StackPanel Height="74">
-                <Image Source="/imgs/nuevo.png" Height="46" Width="34"/>
+                <Image Source="/nuevo.png" Height="46" Width="34"/>
                 <TextBlock><Run Text="Nuevo"/></TextBlock>
             </StackPanel>
         </Button>

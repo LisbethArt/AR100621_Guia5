@@ -24,8 +24,9 @@
                  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFEBEFBE"/>
         <TextBox x:Name="txtEmail" HorizontalAlignment="Left" Margin="120,221,0,0"
                  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFEBEFBE"/>
-        <TextBox x:Name="txtPais" HorizontalAlignment="Left" Margin="120,287,0,0"
-                 TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="#FFEBEFBE"/>
+        <ComboBox x:Name="cmbPais" HorizontalAlignment="Left" Margin="120,287,0,0"
+          Text="" VerticalAlignment="Top" Width="120" Background="#FFEBEFBE"
+          DisplayMemberPath="Nombre" SelectedValuePath="Id"/>
         <Button x:Name="btnRegistrar" HorizontalAlignment="Left" Margin="290,106,0,0"
                 VerticalAlignment="Top" RenderTransformOrigin="1.44,-0.64"
                 Click="btnRegistrar_Click" Height="65" Width="50">

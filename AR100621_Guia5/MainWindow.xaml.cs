@@ -25,7 +25,25 @@ namespace GestionUsuarios
         private void CargarDatos()
         {
             UsuarioDao daoUsuario = new UsuarioDao();
-            dgUsuarios.ItemsSource = daoUsuario.Obtener();
+            var usuarios = daoUsuario.Obtener();
+
+            // Iterar sobre cada usuario y asignar el nombre del país
+            foreach (var usuario in usuarios)
+            {
+                usuario.NombrePais = daoUsuario.ObtenerNombrePaisPorId(usuario.Pais);
+            }
+
+            dgUsuarios.ItemsSource = usuarios;
+
+            // Ocultar la columna de país
+            foreach (var column in dgUsuarios.Columns)
+            {
+                if (column.Header.ToString() == "Pais")
+                {
+                    column.Visibility = Visibility.Collapsed;
+                    break;
+                }
+            }
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)

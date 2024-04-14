@@ -36,11 +36,19 @@ namespace GestionUsuarios
             set { email = value; }
         }
 
-        private string pais; // Campo
-        public string Pais // Property
+        private int pais; // Campo
+        public int Pais // Property
         {
             get { return pais; }
             set { pais = value; }
+        }
+
+        // Nueva propiedad para almacenar el nombre del país
+        private string nombrePais; // Campo
+        public string NombrePais // Property
+        {
+            get { return nombrePais; }
+            set { nombrePais = value; }
         }
     }
 }

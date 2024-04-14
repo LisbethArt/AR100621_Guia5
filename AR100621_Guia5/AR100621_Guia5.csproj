@@ -30,6 +30,7 @@
       <CopyToOutputDirectory></CopyToOutputDirectory>
     </Resource>
     <Resource Include="imgs\nuevo.png" />
+    <Resource Include="nuevo.png" />
   </ItemGroup>
 
 </Project>
